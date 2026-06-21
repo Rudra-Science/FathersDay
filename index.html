@@ -519,6 +519,131 @@
             z-index: 1000;
             border-top: 2px solid var(--accent-gold);
         }
+        /* ==========================================================================
+           ⚡ COZY SCREEN & SMARTPHONE RESPONSIVE OVERRIDES
+           ========================================================================== */
+        @media (max-width: 768px) {
+            /* Navbar Compression */
+            header {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            header .logo {
+                font-size: 1.15rem;
+                letter-spacing: 1px;
+            }
+
+            /* Enable a smooth horizontal touch-swipe for nav links so they never wrap into ugly rows */
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                display: flex;
+                padding-bottom: 3px;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 18px;
+                font-size: 0.75rem;
+                display: inline-block;
+            }
+
+            /* Convert strict viewport containers to natural auto-scrolling flows */
+            section {
+                height: auto;
+                min-height: 100dvh; /* Adapts to dynamic mobile browser address bars */
+                padding: 120px 20px 130px 20px;
+            }
+
+            /* Typography Scaling */
+            h2 {
+                font-size: 1.9rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            /* Flatten 3-Column Desktop Layouts into Clean Single Columns */
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .polaroid-card {
+                padding: 12px 12px 24px 12px;
+            }
+
+            .polaroid-card img {
+                height: 230px;
+            }
+
+            /* Mobile Stacked Tracklist Text Scaling */
+            .audio-tracklist {
+                padding: 20px 15px;
+            }
+
+            .track-item {
+                font-size: 0.95rem;
+                padding: 12px 5px;
+            }
+
+            /* Vertical Stack for Interaction Tickets */
+            .ticket-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .ticket {
+                width: 100%;
+                max-width: 280px;
+                height: 160px;
+            }
+
+            /* Media Player Sizing Adjustment */
+            .player-card {
+                padding: 20px 15px;
+                width: 94%;
+            }
+
+            #player-title {
+                font-size: 1.1rem;
+            }
+
+            .letter-box {
+                padding: 30px 20px;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            /* Scaling Down Train Line Assets for Mobile Footprint */
+            .track-wrapper {
+                bottom: 38px;
+                height: 32px;
+            }
+
+            .train-assembly {
+                height: 32px;
+            }
+
+            footer {
+                font-size: 0.75rem;
+                padding: 11px 5px;
+            }
+        }
     </style>
 </head>
 <body>
