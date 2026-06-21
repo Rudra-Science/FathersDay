@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Memory Express | Happy Father's Day</title>
+    <style>
+                body {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none;     /* IE 10 and Bill Gates */
+            user-select: none;         /* Modern Browsers */
+        }
+        
+        /* --- HIGH-CONTRAST GRADIENT SYSTEM --- */
+        :root {
+            --suga-green: #1AA659;
+            --suga-dark: #062615;
+            --rail-red: #D32F2F;
+            --coach-blue: #0D47A1;
+            --accent-gold: #FFD700;
+            
+            /* Multi-Color Gradient Tracks for Sections */
+            --grad-hero: linear-gradient(135deg, #062615 0%, #1AA659 60%, #0D47A1 100%);
+            --grad-dining: linear-gradient(135deg, #0D47A1 0%, #1565C0 40%, #1AA659 100%);
+            --grad-scenic: linear-gradient(135deg, #1AA659 0%, #116B39 50%, #D32F2F 100%);
+            --grad-tracks: linear-gradient(135deg, #D32F2F 0%, #7B1FA2 50%, #0D47A1 100%);
+            --grad-tickets: linear-gradient(135deg, #062615 0%, #116B39 50%, #1AA659 100%);
+            --grad-terminus: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            
+            --grad-ticket-front: linear-gradient(135deg, #FFF9E6 0%, #FFF0C2 100%);
+            --grad-ticket-back: linear-gradient(135deg, #D32F2F 0%, #901A1A 100%);
+            --grad-button: linear-gradient(135deg, #1AA659 0%, #0D47A1 100%);
+            --grad-header: linear-gradient(90deg, rgba(6,38,21,0.95) 0%, rgba(13,71,161,0.95) 100%);
+        }
+
+        /* --- GLOBAL RESET & TYPOGRAPHY --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--suga-dark);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* --- STICKY NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--grad-header);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        header .logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        header .logo span { color: var(--accent-gold); }
+
+        nav a {
+            text-decoration: none;
+            color: #FFFFFF;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        /* --- FULL SCREEN GRADIENT PAGES --- */
+        section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 90px 40px 140px 40px;
+            position: relative;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.4);
+        }
+
+        #page1 { background: var(--grad-hero); }
+        #page2 { background: var(--grad-dining); }
+        #page3 { background: var(--grad-scenic); }
+        #page4 { background: var(--grad-tracks); }
+        #page5 { background: var(--grad-tickets); }
+        #page6 { background: var(--grad-terminus); }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        h2 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* --- PAGE 1: FEATURED ENGINE HERO CARD --- */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 650px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-title { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-title span { color: var(--accent-gold); }
+
+        /* --- PHOTO CARDS --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+        }
+
+        .polaroid-card {
+            background: #FFFFFF;
+            padding: 16px 16px 30px 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #FFFFFF;
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-15px) scale(1.04) rotate(2deg);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .polaroid-card img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            background-color: #E0E0E0;
+        }
+
+        .caption {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--suga-dark);
+            text-transform: uppercase;
+        }
+
+        /* --- AUDIO CARD --- */
+        .audio-tracklist {
+            background: rgba(6, 38, 21, 0.85);
+            backdrop-filter: blur(10px);
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+            border: 3px solid var(--accent-gold);
+            text-align: left;
+        }
+
+        .track-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .track-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+            border-left: 4px solid var(--accent-gold);
+        }
+        .track-item:last-child { border-bottom: none; }
+        .track-number { color: var(--accent-gold); font-weight: 800; margin-right: 12px; }
+        .track-status {
+            background: var(--rail-red);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        /* --- SPOTIFY/APPLE MUSIC VIDEO OVERLAY MODAL --- */
+        .media-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(6, 38, 21, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: none; /* Toggled via JS */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .media-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .player-card {
+            background: #111827; /* Deep midnight carbon color */
+            border: 2px solid rgba(26, 166, 89, 0.4);
+            width: 90%;
+            max-width: 680px;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(26, 166, 89, 0.15);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .media-overlay.active .player-card {
+            transform: scale(1);
+        }
+
+        .close-player {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--rail-red);
+            color: white;
+            border: 2px solid #FFFFFF;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .close-player:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 16 / 9;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .player-info {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        #player-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        #player-subtitle {
+            font-size: 0.95rem;
+            color: var(--suga-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        /* Spotify-style mock progress track timeline */
+        .playback-timeline {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .playback-progress {
+            width: 35%; /* Fixed visually to look like a music interface bar */
+            height: 100%;
+            background: var(--suga-green);
+            box-shadow: 0 0 10px var(--suga-green);
+            border-radius: 10px;
+        }
+
+        /* --- TICKETS (WITH INDEPENDENT RANDOM SERIALS) --- */
+        .ticket-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .ticket {
+            width: 300px;
+            height: 180px;
+            perspective: 1500px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .ticket:hover {
+            transform: translateY(-12px) scale(1.06);
+            filter: drop-shadow(0 15px 25px rgba(255, 215, 0, 0.4));
+        }
+
+        .ticket-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .ticket.flipped .ticket-inner {
+            transform: rotateY(180deg);
+        }
+
+        .ticket-front, .ticket-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .ticket-front {
+            background: var(--grad-ticket-front);
+            color: var(--suga-dark);
+            border: 4px dashed var(--coach-blue);
+        }
+
+        .ticket-front h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--coach-blue);
+        }
+
+        .ticket-serial {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--rail-red);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .punch-btn {
+            background: var(--grad-button);
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        .ticket-back {
+            background: var(--grad-ticket-back);
+            color: #FFFFFF;
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            border: 3px dashed var(--accent-gold);
+        }
+
+        /* --- TERMINUS LETTER --- */
+        .letter-box {
+            background: #FFFFFF;
+            color: var(--suga-dark);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.4);
+            border-top: 8px solid var(--suga-green);
+            border-bottom: 8px solid var(--rail-red);
+            text-align: left;
+            line-height: 1.9;
+            font-size: 1.15rem;
+        }
+
+        /* --- TRACKER & SMOOTH ANIMATED RIGHT-TO-LEFT TRAIN --- */
+        .track-wrapper {
+            position: fixed;
+            bottom: 45px;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            z-index: 999;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .railway-line {
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--rail-red) 0%, var(--accent-gold) 50%, var(--coach-blue) 100%);
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .train-assembly {
+            position: absolute;
+            bottom: 2px;
+            left: 105%; /* Starts completely off-screen on the right side */
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 45px;
+            will-change: left;
+        }
+
+        .train-assembly img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.4));
+        }
+
+        /* --- FIXED FOOTER --- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 14px;
+            text-align: center;
+            background: var(--grad-header);
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 1000;
+            border-top: 2px solid var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">THE MEMORY <span>EXPRESS</span></div>
+        <nav>
+            <a href="#page1">Departure</a>
+            <a href="#page2">Old times</a>
+            <a href="#page3">New time</a>
+            <a href="#page4">Sound Track</a>
+            <a href="#page5">Tickets</a>
+            <a href="#page6">Terminus</a>
+        </nav>
+    </header>
+
+    <section id="page1">
+        <div class="container">
+            <div class="hero-card">
+                <img src="new/DSC_0058.JPG" alt="image">
+                <h1 class="hero-title">Happy Father's Day, <span>Dad!</span></h1>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-style: italic;">All aboard. Scroll down to watch the Express roll backward through the years.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="page2">
+        <div class="container">
+            <h2>The Old Times are Gold</h2>
+            <div class="section-subtitle">Dedicated to the times i was a kid and with my father. Remember these?</div>
+            <div class="grid-3">
+                <div class="polaroid-card">
+                    <img src="old/DSCN0892.JPG" alt="Family Photo 1">
+                    <div class="caption">Maihar on 1st may 2013</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="old/DSCN1196.JPG" alt="Family Photo 2">
+                    <div class="caption">Diwali time at home on 3rd november 2013</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="old/RSCN0814.JPG" alt="Family Photo 3">
+                    <div class="caption">Station on republic day 2013</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page3">
+        <div class="container">
+            <h2>The Modern Age!</h2>
+            <div class="section-subtitle">Some of the latest times that i still possess the memory of!</div>
+            <div class="grid-3">
+                <div class="polaroid-card">
+                    <img src="new/hands.jpg" alt="Travel Photo 1">
+                    <div class="caption">Posed long time ago</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="new/hands 2.0 .jpg" alt="Travel Photo 2">
+                    <div class="caption">recreated same one 2 years after</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="new/kartavya path.jpg" alt="Travel Photo 3">
+                    <div class="caption">Monuments & Milestones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page4">
+        <div class="container">
+            <h2>The Sound Track</h2>
+            <div class="section-subtitle">Honoring alternating guitar fret patterns, perfectly attuned mixes, and core acoustic guidance. Click to Listen!</div>
+            <div class="audio-tracklist">
+                <div class="track-item" onclick="openPlayer('Aaj purani yaadon se', 'videos/track1.mp4')">
+                    <p><span class="track-number">01.</span> Aaj purani yaadon se.</p>
+                    <span class="track-status" style="background:var(--suga-green)">Steady</span>
+                </div>
+                <div class="track-item" onclick="openPlayer('Mitti ke bete', 'videos/track2.mp4')">
+                    <p><span class="track-number">02.</span> Mitti ke bete</p>
+                    <span class="track-status">Play ▷</span>
+                </div>
+                <div class="track-item" onclick="openPlayer('yeh shaam mastani', 'videos/track3.mp4')">
+                    <p><span class="track-number">03.</span> yeh shaam mastani(here is me ruining your recording)</p>
+                    <span class="track-status" style="background:var(--coach-blue)">True</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="media-overlay" class="media-overlay" onclick="closePlayerOnOutsideClick(event)">
+        <div class="player-card">
+            <button class="close-player" onclick="closePlayer()">&times;</button>
+            <div class="video-container">
+                <video id="player-video" controls src=""></video>
+            </div>
+            <div class="player-info">
+                <h3 id="player-title">Track Title Placeholder</h3>
+                <p id="player-subtitle">THE MEMORY EXPRESS • AUDIO LOG ENGINE</p>
+                <div class="playback-timeline">
+                    <div class="playback-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="page5">
+        <div class="container">
+            <h2>The Ticket Counter</h2>
+            <div class="section-subtitle">Punch any ticket card below to draw a completely randomized memory highlight!</div>
+            
+            <div class="ticket-container">
+                <div class="ticket" onclick="punchTicket(this)">
+                    <div class="ticket-inner">
+                        <div class="ticket-front">
+                            <h3>Express Line</h3>
+                            <div class="ticket-serial">No. EXP-XXXXXX</div>
+                            <div class="punch-btn">Punch Pass</div>
+                        </div>
+                        <div class="ticket-back">Click to register...</div>
+                    </div>
+                </div>
+                <div class="ticket" onclick="punchTicket(this)">
+                    <div class="ticket-inner">
+                        <div class="ticket-front">
+                            <h3>Express Line</h3>
+                            <div class="ticket-serial">No. EXP-XXXXXX</div>
+                            <div class="punch-btn">Punch Pass</div>
+                        </div>
+                        <div class="ticket-back">Click to register...</div>
+                    </div>
+                </div>
+                <div class="ticket" onclick="punchTicket(this)">
+                    <div class="ticket-inner">
+                        <div class="ticket-front">
+                            <h3>Express Line</h3>
+                            <div class="ticket-serial">No. EXP-XXXXXX</div>
+                            <div class="punch-btn">Punch Pass</div>
+                        </div>
+                        <div class="ticket-back">Click to register...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page6">
+        <div class="container">
+            <h2>The Final Station</h2>
+            <div class="section-subtitle">The Express arrives right on time at its destination.</div>
+            <div class="letter-box">
+                <p style="font-weight: 800; font-size: 1.3rem; color: var(--coach-blue);">Dear Papajii,</p><br>
+                <p>Thank you for always setting down the most incredibly reliable, permanent tracks for our family express to run smoothly across. Your quiet strength, immense resilience, and clear structural guidance remain the ultimate anchor through every unexpected turn or unscheduled itinerary change.</p><br>
+                <p>No matter how far your scoldings go, It benefits me and has done some good every time. I know that this website will stay for at most 1 week but for the actual gift, i will try my best to give it to you in 2-3 years.</p><br>
+                <p style="font-weight: 800; text-align: right; color: var(--suga-green); font-size: 1.2rem;">Happy Father's Day! With all My love.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="track-wrapper">
+        <div class="railway-line"></div>
+        <div class="train-assembly" id="train-set">
+            <img src="engine.png" alt="Train Engine Box">
+            <img src="box.png" alt="Passenger Box 1">
+            <img src="box.png" alt="Passenger Box 2">
+            <img src="box.png" alt="Passenger Box 3">
+            <img src="box.png" alt="Passenger Box 1">
+            <img src="box.png" alt="Passenger Box 2">
+            <img src="box.png" alt="Passenger Box 3">
+            <img src="box.png" alt="Passenger Box 1">
+            <img src="box.png" alt="Passenger Box 2">
+            <img src="box.png" alt="Passenger Box 3">       
+        </div>
+    </div>
+
+    <footer>
+        Happy Father's Day 2026 • Assembled with Premium Sugapankhi Green & Right-to-Left Fluid Track Mechanics
+    </footer>
+
+    <script>
+    const memoryPool = [
+        "Like a steady gravitational field, you always kept me grounded when my world felt weightless.",
+        "Thank you for teaching me that even when life maximizes entropy, a calm mind can always restore equilibrium.",
+        "Thanks for showing me how to overcome inertia and keep moving forward when things get heavy.",
+        "Our bond is like quantum entanglement—no matter the distance down the line, the connection is instantaneous.",
+        "Thank you for teaching me that life's resistance only makes the current of our resilience stronger.",
+        "You are the perfect lens, always helping me adjust my optics to focus on what truly matters.",
+        "Thanks for being the thermal anchor that keeps our home safe from absolute zero.",
+        "Like the conservation of momentum, the drive you gave me keeps pushing me forward every day.",
+        "You taught me how to calculate escape velocity from negative mindsets and bad vibes.",
+        "Thank you for explaining that friction isn't always bad; sometimes it's exactly what gives us traction to stand firm.",
+        "Your patience is a perfect superconductor—zero resistance, always letting things flow smoothly.",
+        "Thanks for showing me that true strength is a vector quantity—it needs both magnitude and the right direction.",
+        "Like a high-frequency wave, your humor always brings the maximum amplitude of laughs to the room.",
+        "Thank you for teaching me the laws of thermodynamics: you can't get something from nothing, so put in the hard work.",
+        "You're the centripetal force that keeps this family express perfectly in orbit.",
+        "Thanks for being the prism that breaks down life's complex white light into bright, manageable colors.",
+        "Like a perfectly balanced circuit, you always know how to manage the voltage when the system pressure rises.",
+        "Thank you for showing me that light always travels along the path of least time—efficiency is key.",
+        "Thank you for being the ultimate catalyst that lowered the activation energy for all my big dreams.",
+        "Thank you for teaching me how to balance life's heaviest chemical equations, one coefficient at a time.",
+        "Like a universal solvent, your advice always dissolves my biggest worries and doubts completely.",
+        "Thanks for being the ultimate buffer solution, maintaining a perfect pH balance when emotions run high.",
+        "Our family bond is stronger than a triple covalent bond—completely unbreakable under pressure.",
+        "Thank you for showing me that hard work yields a precipitate of sweet success after a long reaction.",
+        "Like a noble gas, you stay completely steady, stable, and unbothered by everyday chaotic reactions.",
+        "Thanks for teaching me that a good dad joke should always trigger an exothermic reaction of pure laughter.",
+        "You taught me that character is built through crystallization—it takes time, saturation, and the right conditions.",
+        "Thanks for being the ideal gas standard—always predictable, reliable, and perfectly supportive under atmospheric pressure.",
+        "Thank you for showing me how to find the perfect titration of work and play in my daily routine.",
+        "Like valence electrons, you always shared your best energy to help me form strong connections with the world.",
+        "Thanks for teaching me that mistakes are just dynamic equilibrium—a sign that you're constantly adjusting and balancing.",
+        "You showed me that resilience is an intrinsic property, not dependent on the mass of the obstacles we face.",
+        "Thank you for being the master of distillation, always separating the core truth from all the noisy fluid static.",
+        "Like a steady shared pair of electrons, you always made sure we split life's duties and joys right down the middle.",
+        "Thanks for reminding me that when compounds get volatile, it's best to cool down and let the vapor condense.",
+        "Thank you for being the literal powerhouse of our family, keeping our energy levels charged every single day.",
+        "Like a perfect state of homeostasis, you always know how to keep our home environment calm and regulated.",
+        "Thanks for passing down the ultimate genetic traits—especially the resilience, focus, and legendary humor.",
+        "You taught me that life requires constant adaptation, just like natural selection favors the flexible mind.",
+        "Thank you for firing up my synaptic pathways with deep logic and a curiosity for how the world works.",
+        "Like a vital enzyme, you speed up my learning process and make the hardest life lessons easy to digest.",
+        "Thanks for being the strong cell wall that protects our entire ecosystem from external pressures.",
+        "You showed me that growth happens through constant division of effort—mitosis of hard work leads to big milestones.",
+        "Thank you for demonstrating that a healthy ecosystem at home requires everyone to work in perfect symbiosis.",
+        "Like a reliable reflex arc, your instinct to protect and guide me is instantaneous and automatic.",
+        "Thanks for teaching me that the roots have to run deep if you want the family tree branches to withstand the heavy storms.",
+        "You showed me that life is like a double helix—two strands of love and discipline tightly wound together.",
+        "Thank you for nurturing my growth with the steady, quiet patience of a master botanist.",
+        "Like cellular respiration, you remind me to take a deep breath, convert the stress into usable energy, and keep going.",
+        "Thanks for explaining that the best feedback loops in life are the ones that keep us honest, humble, and grounded.",
+        "You taught me that the mind needs a regular supply of fresh perspectives to avoid creative hypoxia.",
+        "Thank you for being the ultimate biological anchor—always keeping my internal compass pointing true north.",
+        "Thank you for showing me that my potential has no upper bound—the limit simply does not exist.",
+        "Like a fundamental mathematical constant, your love is a non-negotiable value that never varies.",
+        "Thanks for teaching me how to integrate all the small details to find the total area of a beautiful life.",
+        "You showed me that even when problems look like a complex matrix, they can always be broken down row by row.",
+        "Thank you for being the absolute value in my life—turning every negative situation into a positive output.",
+        "Like two perfectly parallel lines, your steady support runs right alongside me through every single milestone.",
+        "Thanks for teaching me that the probability of succeeding increases exponentially the moment you decide to try again.",
+        "You showed how to derive simple, elegant solutions from the most chaotic, messy life equations.",
+        "Thank you for being my mathematical anchor, keeping my path linear when variables try to pull me off course.",
+        "Like a master algorithm, your step-by-step guidance always resolves the trickiest bugs in my plans.",
+        "Thanks for proving that the standard deviation of your patience is remarkably close to zero.",
+        "You taught me that a dad's support is an infinite geometric progression—it just keeps compounding over time.",
+        "Thank you for showing me how to plot my coordinate points accurately so I never lose my true direction.",
+        "Like a perfect circle, your support has no end, no sharp corners, and a flawless radius of care.",
+        "Thanks for teaching me to look at life through the beauty of fractals—complex patterns made of simple, repeated good habits.",
+        "You showed me that any obstacle can be factored out if you group the right terms together and stay focused.",
+        "Thank you for being the ultimate variable operator, always adjusting the conditions so I could succeed.",
+        "Like the concept of infinity, what you've taught me is something that can never be fully measured or exhausted."
+    ];
+        // 1. UNIQUE SEED GENERATORS FOR TICKET NUMBERS
+        function generateRandomSerials() {
+            document.querySelectorAll('.ticket-serial').forEach(element => {
+                const randomNo = Math.floor(10000 + Math.random() * 90000);
+                element.textContent = `No. EXP-${randomNo}`;
+            });
+        }
+        window.onload = generateRandomSerials;
+
+        function punchTicket(ticketElement) {
+            const backFace = ticketElement.querySelector('.ticket-back');
+            const randomIndex = Math.floor(Math.random() * memoryPool.length);
+            backFace.textContent = memoryPool[randomIndex];
+            ticketElement.classList.toggle('flipped');
+            ticketElement.querySelector('.ticket-serial').textContent = `No. EXP-${Math.floor(10000 + Math.random() * 90000)}`;
+        }
+
+        // 2. SPOTIFY/APPLE STYLE OVERLAY CONTROLLER FUNCTIONS
+        const overlay = document.getElementById('media-overlay');
+        const playerVideo = document.getElementById('player-video');
+        const playerTitle = document.getElementById('player-title');
+
+        function openPlayer(trackName, videoSrc) {
+            playerTitle.textContent = trackName;
+            
+            // Set your path file inside videoSrc parameter hooks
+            playerVideo.src = videoSrc; 
+            
+            overlay.classList.add('active');
+            playerVideo.play().catch(e => console.log("Auto-play blocked, waiting for user gesture context."));
+        }
+
+        function closePlayer() {
+            overlay.classList.remove('active');
+            playerVideo.pause();
+            playerVideo.src = ""; // Flush buffer completely
+        }
+
+        function closePlayerOnOutsideClick(event) {
+            // Closes modal if user clicks on background glass wall container instead of card inside
+            if (event.target === overlay) {
+                closePlayer();
+            }
+        }
+
+        // 3. SMOOTH LERP ANIMATION ENGINE (RIGHT TO LEFT MOVEMENT)
+        let currentLeftPosition = 105; 
+        let targetLeftPosition = 105;
+        const interpolationEaseFactor = 0.06; 
+
+        window.addEventListener('scroll', () => {
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
+            const scrollableRange = docHeight - winHeight;
+            
+            if (scrollableRange > 0) {
+                const currentScrollPercent = (window.scrollY / scrollableRange) * 100;
+                targetLeftPosition = 105 - (currentScrollPercent * 1.65);
+            }
+        });
+
+        function renderLoop() {
+            currentLeftPosition += (targetLeftPosition - currentLeftPosition) * interpolationEaseFactor;
+            document.getElementById('train-set').style.left = currentLeftPosition + '%';
+            requestAnimationFrame(renderLoop);
+        }
+        
+        requestAnimationFrame(renderLoop);
+
+
+['contextmenu', 'selectstart', 'dragstart'].forEach(ev => document.addEventListener(ev, e => e.preventDefault()));
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) || (e.ctrlKey && e.key.toLowerCase() === 'u')) e.preventDefault();
+});
+    </script>
+</body>
+</html>
